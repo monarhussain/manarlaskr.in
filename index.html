@@ -20,9 +20,7 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
-
   body {
     background: var(--deep);
     color: var(--cream);
@@ -35,18 +33,25 @@
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; justify-content: space-between; align-items: center;
-    padding: 1.4rem 4rem;
-    background: rgba(17,17,17,0.9);
+    padding: 1rem 4rem;
+    background: rgba(17,17,17,0.92);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
   }
   .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem;
-    font-weight: 300;
-    letter-spacing: 0.12em;
-    color: var(--gold);
+    display: flex; align-items: center; gap: 0.8rem;
     text-decoration: none;
+  }
+  .nav-logo img {
+    height: 48px; width: 48px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: var(--cream);
+  }
+  .nav-logo-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem; font-weight: 300;
+    letter-spacing: 0.12em; color: var(--gold);
   }
   .nav-links {
     display: flex; gap: 2.5rem; list-style: none;
@@ -57,7 +62,6 @@
     opacity: 0.7; transition: opacity 0.3s, color 0.3s;
   }
   .nav-links a:hover { opacity: 1; color: var(--gold); }
-
   .nav-cta {
     background: transparent;
     border: 1px solid var(--gold);
@@ -73,17 +77,14 @@
     display: grid; grid-template-columns: 1fr 1fr;
     align-items: center;
     padding: 0 4rem;
-    position: relative;
-    overflow: hidden;
+    position: relative; overflow: hidden;
   }
-
   .hero-bg {
     position: absolute; inset: 0;
     background: 
       radial-gradient(ellipse 60% 80% at 80% 50%, rgba(201,169,110,0.06) 0%, transparent 70%),
       radial-gradient(ellipse 40% 60% at 20% 80%, rgba(192,130,122,0.04) 0%, transparent 70%);
   }
-
   .hero-grid-lines {
     position: absolute; inset: 0; pointer-events: none;
     background-image: 
@@ -91,91 +92,57 @@
       linear-gradient(90deg, rgba(201,169,110,0.04) 1px, transparent 1px);
     background-size: 80px 80px;
   }
-
-  .hero-left {
-    position: relative; z-index: 2;
-    padding-right: 4rem;
-  }
-
+  .hero-left { position: relative; z-index: 2; padding-right: 4rem; }
   .hero-eyebrow {
     font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase;
     color: var(--gold); margin-bottom: 2rem;
     display: flex; align-items: center; gap: 1rem;
   }
-  .hero-eyebrow::before {
-    content: ''; width: 40px; height: 1px; background: var(--gold);
-  }
-
+  .hero-eyebrow::before { content: ''; width: 40px; height: 1px; background: var(--gold); }
   .hero-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(3rem, 5vw, 5.5rem);
-    font-weight: 300;
-    line-height: 1.05;
-    margin-bottom: 2rem;
-    color: var(--warm-white);
+    font-weight: 300; line-height: 1.05;
+    margin-bottom: 2rem; color: var(--warm-white);
   }
-  .hero-title em {
-    font-style: italic;
-    color: var(--gold);
-  }
-
+  .hero-title em { font-style: italic; color: var(--gold); }
   .hero-sub {
     font-size: 0.9rem; line-height: 1.9; opacity: 0.65;
-    max-width: 440px; margin-bottom: 3rem;
-    letter-spacing: 0.02em;
+    max-width: 440px; margin-bottom: 3rem; letter-spacing: 0.02em;
   }
-
   .hero-location {
     font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase;
     color: var(--rose); margin-bottom: 3rem;
   }
-
-  .hero-buttons {
-    display: flex; gap: 1.2rem; flex-wrap: wrap;
-  }
+  .hero-buttons { display: flex; gap: 1.2rem; flex-wrap: wrap; }
   .btn-primary {
-    background: var(--gold);
-    color: var(--deep);
+    background: var(--gold); color: var(--deep);
     padding: 0.9rem 2.4rem;
-    font-family: 'Jost', sans-serif;
-    font-size: 0.72rem; font-weight: 500;
+    font-family: 'Jost', sans-serif; font-size: 0.72rem; font-weight: 500;
     letter-spacing: 0.2em; text-transform: uppercase;
-    border: none; cursor: pointer; text-decoration: none;
-    display: inline-block;
+    border: none; cursor: pointer; text-decoration: none; display: inline-block;
     transition: background 0.3s, transform 0.2s;
   }
   .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
-
   .btn-outline {
-    background: transparent;
-    color: var(--cream);
+    background: transparent; color: var(--cream);
     padding: 0.9rem 2.4rem;
-    font-family: 'Jost', sans-serif;
-    font-size: 0.72rem; font-weight: 400;
+    font-family: 'Jost', sans-serif; font-size: 0.72rem; font-weight: 400;
     letter-spacing: 0.2em; text-transform: uppercase;
-    border: 1px solid rgba(245,240,232,0.3); cursor: pointer; text-decoration: none;
-    display: inline-block;
+    border: 1px solid rgba(245,240,232,0.3); cursor: pointer; text-decoration: none; display: inline-block;
     transition: border-color 0.3s, color 0.3s;
   }
   .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
 
   .hero-right {
-    position: relative; z-index: 2;
-    height: 100vh;
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    padding: 6rem 0;
+    position: relative; z-index: 2; height: 100vh;
+    display: grid; grid-template-rows: 1fr 1fr; grid-template-columns: 1fr 1fr;
+    gap: 8px; padding: 6rem 0;
   }
-
-  .hero-img-card {
-    overflow: hidden; position: relative;
-  }
+  .hero-img-card { overflow: hidden; position: relative; }
   .hero-img-card img {
     width: 100%; height: 100%; object-fit: cover;
-    transition: transform 0.6s ease;
-    filter: brightness(0.85);
+    transition: transform 0.6s ease; filter: brightness(0.85);
   }
   .hero-img-card:hover img { transform: scale(1.05); filter: brightness(1); }
   .hero-img-card:first-child { grid-column: span 2; }
@@ -183,428 +150,222 @@
   /* ─── STATS ─── */
   .stats-bar {
     display: grid; grid-template-columns: repeat(4, 1fr);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
+    border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
   }
-  .stat-item {
-    padding: 2.5rem 3rem;
-    border-right: 1px solid var(--border);
-    text-align: center;
-  }
+  .stat-item { padding: 2.5rem 3rem; border-right: 1px solid var(--border); text-align: center; }
   .stat-item:last-child { border-right: none; }
-  .stat-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.8rem; font-weight: 300;
-    color: var(--gold); display: block;
-  }
-  .stat-label {
-    font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
-    opacity: 0.5; margin-top: 0.3rem; display: block;
-  }
+  .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 300; color: var(--gold); display: block; }
+  .stat-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.5; margin-top: 0.3rem; display: block; }
 
   /* ─── SECTIONS ─── */
   section { padding: 6rem 4rem; }
-
   .section-label {
     font-size: 0.62rem; letter-spacing: 0.35em; text-transform: uppercase;
-    color: var(--gold); display: flex; align-items: center; gap: 1rem;
-    margin-bottom: 1.5rem;
+    color: var(--gold); display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;
   }
-  .section-label::before {
-    content: ''; width: 30px; height: 1px; background: var(--gold);
-  }
-
+  .section-label::before { content: ''; width: 30px; height: 1px; background: var(--gold); }
   .section-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(2rem, 3.5vw, 3.5rem);
-    font-weight: 300; line-height: 1.15;
-    margin-bottom: 1rem;
+    font-weight: 300; line-height: 1.15; margin-bottom: 1rem;
   }
 
   /* ─── ABOUT ─── */
   #about {
     display: grid; grid-template-columns: 1fr 1.2fr;
-    gap: 6rem; align-items: center;
+    gap: 6rem; align-items: start;
     background: linear-gradient(135deg, rgba(201,169,110,0.03) 0%, transparent 60%);
   }
-
   .about-quote {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.6rem; font-weight: 300; font-style: italic;
-    line-height: 1.6;
-    color: var(--gold-light);
+    line-height: 1.6; color: var(--gold-light);
     border-left: 2px solid var(--gold);
-    padding-left: 2rem;
-    margin: 2.5rem 0;
+    padding-left: 2rem; margin: 2.5rem 0;
   }
-
-  .about-text p {
-    font-size: 0.95rem; line-height: 1.9; opacity: 0.7;
-    margin-bottom: 1.4rem; letter-spacing: 0.01em;
-  }
+  .about-text p { font-size: 0.95rem; line-height: 1.9; opacity: 0.7; margin-bottom: 1.4rem; letter-spacing: 0.01em; }
   .about-text strong { color: var(--cream); opacity: 1; font-weight: 400; }
 
-  .about-image-stack {
-    position: relative; height: 550px;
+  /* About right: logo + site photos grid */
+  .about-right { display: flex; flex-direction: column; gap: 1.5rem; }
+
+  .about-logo-wrap {
+    display: flex; justify-content: center; align-items: center;
+    padding: 2rem;
+    border: 1px solid var(--border);
+    background: var(--cream);
   }
-  .about-img-main {
-    position: absolute; top: 0; right: 0;
-    width: 80%; height: 80%;
-    object-fit: cover;
+  .about-logo-wrap img {
+    max-width: 280px; width: 100%; height: auto;
+    object-fit: contain;
   }
-  .about-img-accent {
-    position: absolute; bottom: 0; left: 0;
-    width: 50%; height: 45%;
-    object-fit: cover;
-    border: 4px solid var(--deep);
+
+  .about-site-photos {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
   }
-  .about-gold-accent {
-    position: absolute; top: -20px; left: -20px;
-    width: 80px; height: 80px;
-    border: 1px solid var(--gold);
-    opacity: 0.3;
+  .about-site-photo {
+    aspect-ratio: 4/3; overflow: hidden; position: relative;
   }
+  .about-site-photo img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.5s ease;
+    filter: brightness(0.85);
+  }
+  .about-site-photo:hover img { transform: scale(1.05); filter: brightness(1); }
+  .about-site-label {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(17,17,17,0.85), transparent);
+    padding: 0.6rem 0.8rem;
+    font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold-light); opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .about-site-photo:hover .about-site-label { opacity: 1; }
 
   /* ─── PORTFOLIO ─── */
   #portfolio { background: var(--charcoal); }
-
-  .portfolio-header {
-    display: flex; justify-content: space-between; align-items: flex-end;
-    margin-bottom: 3rem;
-  }
-
-  .filter-tabs {
-    display: flex; gap: 0; list-style: none;
-  }
+  .portfolio-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; }
+  .filter-tabs { display: flex; gap: 0; list-style: none; }
   .filter-tab {
-    padding: 0.6rem 1.4rem;
-    font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
-    cursor: pointer; border: 1px solid var(--border);
-    color: var(--text-muted); transition: all 0.3s;
-    margin-right: -1px;
+    padding: 0.6rem 1.4rem; font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+    cursor: pointer; border: 1px solid var(--border); color: var(--text-muted); transition: all 0.3s; margin-right: -1px;
   }
-  .filter-tab.active, .filter-tab:hover {
-    background: var(--gold); color: var(--deep);
-    border-color: var(--gold);
-  }
-
-  .portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-  }
-
-  .portfolio-card {
-    position: relative; overflow: hidden;
-    aspect-ratio: 4/3;
-    cursor: pointer;
-  }
+  .filter-tab.active, .filter-tab:hover { background: var(--gold); color: var(--deep); border-color: var(--gold); }
+  .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .portfolio-card { position: relative; overflow: hidden; aspect-ratio: 4/3; cursor: pointer; }
   .portfolio-card.tall { aspect-ratio: 3/4; }
   .portfolio-card.wide { grid-column: span 2; aspect-ratio: 16/7; }
-
-  .portfolio-card img {
-    width: 100%; height: 100%; object-fit: cover;
-    transition: transform 0.7s ease, filter 0.4s;
-    filter: brightness(0.8);
-  }
-  .portfolio-card:hover img {
-    transform: scale(1.06);
-    filter: brightness(1);
-  }
-
+  .portfolio-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s ease, filter 0.4s; filter: brightness(0.8); }
+  .portfolio-card:hover img { transform: scale(1.06); filter: brightness(1); }
   .portfolio-overlay {
     position: absolute; inset: 0;
     background: linear-gradient(to top, rgba(17,17,17,0.9) 0%, transparent 60%);
     opacity: 0; transition: opacity 0.4s;
-    display: flex; flex-direction: column; justify-content: flex-end;
-    padding: 1.8rem;
+    display: flex; flex-direction: column; justify-content: flex-end; padding: 1.8rem;
   }
   .portfolio-card:hover .portfolio-overlay { opacity: 1; }
-
-  .portfolio-tag {
-    font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 0.4rem;
-  }
-  .portfolio-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem; font-weight: 300;
-  }
-  .portfolio-loc {
-    font-size: 0.65rem; opacity: 0.6; margin-top: 0.2rem;
-    letter-spacing: 0.1em;
-  }
+  .portfolio-tag { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem; }
+  .portfolio-name { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 300; }
+  .portfolio-loc { font-size: 0.65rem; opacity: 0.6; margin-top: 0.2rem; letter-spacing: 0.1em; }
 
   /* ─── SERVICES ─── */
-  #services {
-    display: grid; grid-template-columns: 1fr 2fr;
-    gap: 6rem; align-items: start;
-  }
-
-  .services-intro p {
-    font-size: 0.9rem; line-height: 1.9; opacity: 0.65; margin-top: 1.5rem;
-  }
-
-  .services-grid {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 0;
-  }
-
+  #services { display: grid; grid-template-columns: 1fr 2fr; gap: 6rem; align-items: start; }
+  .services-intro p { font-size: 0.9rem; line-height: 1.9; opacity: 0.65; margin-top: 1.5rem; }
+  .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
   .service-item {
-    padding: 2.2rem;
-    border: 1px solid var(--border);
-    margin: -1px 0 0 -1px;
-    transition: background 0.3s;
-    position: relative; overflow: hidden;
+    padding: 2.2rem; border: 1px solid var(--border); margin: -1px 0 0 -1px;
+    transition: background 0.3s; position: relative; overflow: hidden;
   }
-  .service-item::before {
-    content: '';
-    position: absolute; top: 0; left: 0;
-    width: 0; height: 2px;
-    background: var(--gold);
-    transition: width 0.4s;
-  }
+  .service-item::before { content: ''; position: absolute; top: 0; left: 0; width: 0; height: 2px; background: var(--gold); transition: width 0.4s; }
   .service-item:hover { background: rgba(201,169,110,0.04); }
   .service-item:hover::before { width: 100%; }
-
-  .service-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.5rem; font-weight: 300;
-    color: var(--border); display: block;
-    margin-bottom: 1rem;
-  }
-  .service-title {
-    font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--cream); margin-bottom: 0.8rem; font-weight: 400;
-  }
-  .service-desc {
-    font-size: 0.82rem; line-height: 1.8; opacity: 0.55;
-  }
+  .service-num { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 300; color: var(--border); display: block; margin-bottom: 1rem; }
+  .service-title { font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cream); margin-bottom: 0.8rem; font-weight: 400; }
+  .service-desc { font-size: 0.82rem; line-height: 1.8; opacity: 0.55; }
 
   /* ─── EXPERIENCE ─── */
   #experience { background: var(--charcoal); }
-
-  .experience-timeline {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-    margin-top: 3rem;
-  }
-
+  .experience-timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 3rem; }
   .exp-card {
-    padding: 3rem 2.5rem;
-    border: 1px solid var(--border);
-    margin: -1px 0 0 -1px;
-    position: relative;
-    transition: background 0.3s;
+    padding: 3rem 2.5rem; border: 1px solid var(--border); margin: -1px 0 0 -1px;
+    position: relative; transition: background 0.3s;
   }
-  .exp-card::after {
-    content: '';
-    position: absolute; bottom: 0; left: 2.5rem; right: 2.5rem;
-    height: 1px; background: var(--gold); opacity: 0;
-    transition: opacity 0.3s;
-  }
+  .exp-card::after { content: ''; position: absolute; bottom: 0; left: 2.5rem; right: 2.5rem; height: 1px; background: var(--gold); opacity: 0; transition: opacity 0.3s; }
   .exp-card:hover { background: rgba(201,169,110,0.03); }
   .exp-card:hover::after { opacity: 1; }
-
-  .exp-period {
-    font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 1.2rem;
-  }
-  .exp-role {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem; font-weight: 300;
-    margin-bottom: 0.4rem;
-  }
-  .exp-company {
-    font-size: 0.75rem; letter-spacing: 0.15em;
-    color: var(--rose); text-transform: uppercase;
-    margin-bottom: 1.5rem;
-  }
-  .exp-points {
-    list-style: none;
-  }
-  .exp-points li {
-    font-size: 0.82rem; line-height: 1.8; opacity: 0.6;
-    padding-left: 1rem; position: relative; margin-bottom: 0.4rem;
-  }
-  .exp-points li::before {
-    content: '—';
-    position: absolute; left: 0;
-    color: var(--gold); opacity: 0.6;
-  }
+  .exp-period { font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
+  .exp-role { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 300; margin-bottom: 0.4rem; }
+  .exp-company { font-size: 0.75rem; letter-spacing: 0.15em; color: var(--rose); text-transform: uppercase; margin-bottom: 1.5rem; }
+  .exp-points { list-style: none; }
+  .exp-points li { font-size: 0.82rem; line-height: 1.8; opacity: 0.6; padding-left: 1rem; position: relative; margin-bottom: 0.4rem; }
+  .exp-points li::before { content: '—'; position: absolute; left: 0; color: var(--gold); opacity: 0.6; }
 
   /* ─── VISION ─── */
   #vision {
     text-align: center;
-    background: 
-      radial-gradient(ellipse 80% 60% at 50% 50%, rgba(201,169,110,0.06) 0%, transparent 70%);
+    background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(201,169,110,0.06) 0%, transparent 70%);
     padding: 8rem 4rem;
   }
-
-  .vision-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.5rem, 5vw, 5rem);
-    font-weight: 300; font-style: italic;
-    line-height: 1.2; max-width: 800px; margin: 0 auto 2rem;
-    color: var(--warm-white);
-  }
-
+  .vision-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 5rem); font-weight: 300; font-style: italic; line-height: 1.2; max-width: 800px; margin: 0 auto 2rem; color: var(--warm-white); }
   .vision-title span { color: var(--gold); }
+  .vision-sub { font-size: 0.9rem; opacity: 0.55; line-height: 1.8; max-width: 500px; margin: 0 auto 3rem; }
 
-  .vision-sub {
-    font-size: 0.9rem; opacity: 0.55; line-height: 1.8;
-    max-width: 500px; margin: 0 auto 3rem;
-  }
-
-  /* ─── PROJECTS HIGHLIGHT ─── */
-  .clients-marquee-wrap {
-    overflow: hidden; padding: 2rem 0;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-  }
-  .clients-marquee {
-    display: flex; gap: 4rem; white-space: nowrap;
-    animation: marquee 20s linear infinite;
-  }
-  @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-  .client-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem; font-weight: 300;
-    opacity: 0.4; letter-spacing: 0.05em;
-    color: var(--cream);
-    transition: opacity 0.3s;
-  }
+  /* ─── MARQUEE ─── */
+  .clients-marquee-wrap { overflow: hidden; padding: 2rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .clients-marquee { display: flex; gap: 4rem; white-space: nowrap; animation: marquee 20s linear infinite; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .client-name { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 300; opacity: 0.4; letter-spacing: 0.05em; color: var(--cream); transition: opacity 0.3s; }
   .client-name:hover { opacity: 0.9; color: var(--gold); }
-  .marquee-dot {
-    color: var(--gold); opacity: 0.5; font-size: 0.5rem;
-    align-self: center;
-  }
+  .marquee-dot { color: var(--gold); opacity: 0.5; font-size: 0.5rem; align-self: center; }
 
-  /* ─── CONTACT ─── */
+  /* ─── CONTACT (no form — info + CTAs only) ─── */
   #contact {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 6rem; align-items: center;
     background: var(--charcoal);
+    text-align: center;
+    padding: 7rem 4rem;
   }
+  #contact .section-label { justify-content: center; }
+  #contact .section-title { text-align: center; max-width: 600px; margin: 0 auto 1.5rem; }
+  .contact-tagline { font-size: 0.9rem; opacity: 0.55; line-height: 1.8; max-width: 520px; margin: 0 auto 3.5rem; }
 
-  .contact-info .section-title { margin-bottom: 2rem; }
+  .contact-cards {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 0; max-width: 860px; margin: 0 auto 3.5rem;
+  }
+  .contact-card {
+    padding: 2rem 1.5rem; border: 1px solid var(--border); margin: -1px 0 0 -1px;
+    transition: background 0.3s;
+    display: flex; flex-direction: column; align-items: center; gap: 0.7rem;
+    text-decoration: none; color: var(--cream);
+  }
+  .contact-card:hover { background: rgba(201,169,110,0.06); }
+  .contact-card-icon { font-size: 1.4rem; }
+  .contact-card-label { font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase; opacity: 0.4; }
+  .contact-card-value { font-size: 0.82rem; line-height: 1.4; transition: color 0.3s; }
+  .contact-card:hover .contact-card-value { color: var(--gold); }
 
-  .contact-item {
-    display: flex; align-items: center; gap: 1.5rem;
-    padding: 1.4rem 0;
-    border-bottom: 1px solid var(--border);
-  }
-  .contact-icon {
-    width: 40px; height: 40px;
-    border: 1px solid var(--border);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1rem; color: var(--gold); flex-shrink: 0;
-  }
-  .contact-detail-label {
-    font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
-    opacity: 0.4; margin-bottom: 0.2rem;
-  }
-  .contact-detail-value {
-    font-size: 0.85rem; color: var(--cream);
-  }
-  .contact-detail-value a {
-    color: inherit; text-decoration: none;
-    transition: color 0.3s;
-  }
-  .contact-detail-value a:hover { color: var(--gold); }
-
-  .contact-form {
-    display: flex; flex-direction: column; gap: 1.2rem;
-  }
-  .form-group {
-    display: flex; flex-direction: column; gap: 0.5rem;
-  }
-  .form-label {
-    font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase;
-    opacity: 0.5;
-  }
-  .form-input, .form-textarea {
-    background: rgba(245,240,232,0.04);
-    border: 1px solid var(--border);
-    padding: 0.9rem 1.2rem;
-    font-family: 'Jost', sans-serif;
-    font-size: 0.85rem; font-weight: 300;
-    color: var(--cream);
-    outline: none;
-    transition: border-color 0.3s;
-    width: 100%;
-  }
-  .form-input:focus, .form-textarea:focus {
-    border-color: var(--gold);
-  }
-  .form-textarea { min-height: 120px; resize: none; }
-  .form-input::placeholder, .form-textarea::placeholder { opacity: 0.3; }
+  .contact-ctas { display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; }
 
   /* ─── FOOTER ─── */
   footer {
-    padding: 2.5rem 4rem;
-    border-top: 1px solid var(--border);
+    padding: 2.5rem 4rem; border-top: 1px solid var(--border);
     display: flex; justify-content: space-between; align-items: center;
   }
-  .footer-brand {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem; color: var(--gold); font-weight: 300;
-    letter-spacing: 0.1em;
-  }
-  .footer-copy {
-    font-size: 0.7rem; opacity: 0.35; letter-spacing: 0.1em;
-  }
-  .footer-social {
-    display: flex; gap: 1.5rem;
-  }
-  .footer-social a {
-    font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--cream); text-decoration: none; opacity: 0.4;
-    transition: opacity 0.3s, color 0.3s;
-  }
+  .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--gold); font-weight: 300; letter-spacing: 0.1em; }
+  .footer-copy { font-size: 0.7rem; opacity: 0.35; letter-spacing: 0.1em; }
+  .footer-social { display: flex; gap: 1.5rem; }
+  .footer-social a { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cream); text-decoration: none; opacity: 0.4; transition: opacity 0.3s, color 0.3s; }
   .footer-social a:hover { opacity: 1; color: var(--gold); }
 
   /* ─── WHATSAPP FLOAT ─── */
   .wa-float {
     position: fixed; bottom: 2rem; right: 2rem; z-index: 200;
-    width: 52px; height: 52px;
-    background: #25d366;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    text-decoration: none;
-    box-shadow: 0 4px 20px rgba(37,211,102,0.4);
-    transition: transform 0.3s, box-shadow 0.3s;
+    width: 52px; height: 52px; background: #25d366; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; text-decoration: none;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.4); transition: transform 0.3s, box-shadow 0.3s;
   }
-  .wa-float:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 28px rgba(37,211,102,0.6);
-  }
+  .wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.6); }
   .wa-float svg { width: 26px; height: 26px; fill: white; }
 
   /* ─── SCROLL ANIMATIONS ─── */
-  .reveal {
-    opacity: 0; transform: translateY(30px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-  .reveal.visible {
-    opacity: 1; transform: translateY(0);
-  }
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
 
   /* ─── RESPONSIVE ─── */
   @media (max-width: 900px) {
-    nav { padding: 1.2rem 2rem; }
+    nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
     #hero { grid-template-columns: 1fr; padding: 5rem 2rem 2rem; }
     .hero-right { display: none; }
     section { padding: 4rem 2rem; }
-    #about, #services, #contact { grid-template-columns: 1fr; gap: 3rem; }
+    #about { grid-template-columns: 1fr; gap: 3rem; }
+    #services { grid-template-columns: 1fr; gap: 3rem; }
     .stats-bar { grid-template-columns: repeat(2, 1fr); }
     .portfolio-grid { grid-template-columns: 1fr 1fr; }
     .portfolio-card.wide { grid-column: span 2; }
     .experience-timeline { grid-template-columns: 1fr; }
     .services-grid { grid-template-columns: 1fr; }
+    .contact-cards { grid-template-columns: repeat(2, 1fr); }
     footer { flex-direction: column; gap: 1rem; text-align: center; }
   }
 </style>
@@ -613,7 +374,10 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#hero" class="nav-logo">Manar Laskar</a>
+  <a href="#hero" class="nav-logo">
+    <img src="images/logo.png" alt="Manar Laskar Logo" onerror="this.style.display='none'">
+    <span class="nav-logo-text">Manar Laskar</span>
+  </a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#portfolio">Work</a></li>
@@ -627,7 +391,6 @@
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid-lines"></div>
-
   <div class="hero-left">
     <div class="hero-eyebrow">Wall Design Specialist</div>
     <h1 class="hero-title">
@@ -642,7 +405,6 @@
       <a href="#contact" class="btn-outline">Work With Me</a>
     </div>
   </div>
-
   <div class="hero-right">
     <div class="hero-img-card">
       <img src="images/lotus_bedroom.png" alt="Lotus bedroom wallpaper" onerror="this.src='https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80'">
@@ -678,22 +440,10 @@
 
 <!-- STATS -->
 <div class="stats-bar">
-  <div class="stat-item reveal">
-    <span class="stat-num">50+</span>
-    <span class="stat-label">Projects Executed</span>
-  </div>
-  <div class="stat-item reveal">
-    <span class="stat-num">3L+</span>
-    <span class="stat-label">Monthly Revenue Target</span>
-  </div>
-  <div class="stat-item reveal">
-    <span class="stat-num">5+</span>
-    <span class="stat-label">Years in Industry</span>
-  </div>
-  <div class="stat-item reveal">
-    <span class="stat-num">2</span>
-    <span class="stat-label">Cities · Pan-India Reach</span>
-  </div>
+  <div class="stat-item reveal"><span class="stat-num">50+</span><span class="stat-label">Projects Executed</span></div>
+  <div class="stat-item reveal"><span class="stat-num">3L+</span><span class="stat-label">Monthly Revenue Target</span></div>
+  <div class="stat-item reveal"><span class="stat-num">5+</span><span class="stat-label">Years in Industry</span></div>
+  <div class="stat-item reveal"><span class="stat-num">2</span><span class="stat-label">Cities · Pan-India Reach</span></div>
 </div>
 
 <!-- ABOUT -->
@@ -710,10 +460,38 @@
       <p>Every space has a story. My job is to make sure the walls tell it right — from first consultation to final installation.</p>
     </div>
   </div>
-  <div class="about-image-stack reveal">
-    <div class="about-gold-accent"></div>
-    <img class="about-img-main" src="images/client_portrait.png" alt="Manar with installation" onerror="this.src='https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80'">
-    <img class="about-img-accent" src="images/peacock_lobby.png" alt="Lobby installation" onerror="this.src='https://images.unsplash.com/photo-1615529328331-f8917597711f?w=300&q=80'">
+
+  <!-- RIGHT: Logo + site photos -->
+  <div class="about-right reveal">
+    <!-- Your logo / personal branding photo -->
+    <div class="about-logo-wrap">
+      <img src="images/logo.png" alt="Manar Laskar"
+           onerror="this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80'">
+    </div>
+
+    <!-- Site / project photos grid — replace src with your actual site photos -->
+    <div class="about-site-photos">
+      <div class="about-site-photo">
+        <img src="images/site_photo_1.jpg" alt="On-site project"
+             onerror="this.src='https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&q=80'">
+        <div class="about-site-label">Site Visit</div>
+      </div>
+      <div class="about-site-photo">
+        <img src="images/site_photo_2.jpg" alt="Installation"
+             onerror="this.src='https://images.unsplash.com/photo-1615529328331-f8917597711f?w=400&q=80'">
+        <div class="about-site-label">Installation</div>
+      </div>
+      <div class="about-site-photo">
+        <img src="images/site_photo_3.jpg" alt="Project completion"
+             onerror="this.src='https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=400&q=80'">
+        <div class="about-site-label">Completed Project</div>
+      </div>
+      <div class="about-site-photo">
+        <img src="images/site_photo_4.jpg" alt="Client meeting"
+             onerror="this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&q=80'">
+        <div class="about-site-label">Client Consultation</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -731,10 +509,7 @@
       <li class="filter-tab">Murals</li>
     </ul>
   </div>
-
   <div class="portfolio-grid">
-
-    <!-- Row 1 -->
     <div class="portfolio-card wide">
       <img src="images/lotus_bedroom.png" alt="Lotus Bedroom" onerror="this.src='https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=900&q=80'">
       <div class="portfolio-overlay">
@@ -743,7 +518,6 @@
         <div class="portfolio-loc">Mumbai · 3BHK Apartment</div>
       </div>
     </div>
-
     <div class="portfolio-card tall">
       <img src="images/peacock_lobby.png" alt="Peacock Lobby" onerror="this.src='https://images.unsplash.com/photo-1615529328331-f8917597711f?w=400&q=80'">
       <div class="portfolio-overlay">
@@ -752,8 +526,6 @@
         <div class="portfolio-loc">Pune · Residential Tower</div>
       </div>
     </div>
-
-    <!-- Row 2 -->
     <div class="portfolio-card">
       <img src="images/jungle_wallpaper.png" alt="Jungle wallpaper" onerror="this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&q=80'">
       <div class="portfolio-overlay">
@@ -762,7 +534,6 @@
         <div class="portfolio-loc">Mumbai</div>
       </div>
     </div>
-
     <div class="portfolio-card">
       <img src="images/chinoiserie_gold.png" alt="Chinoiserie gold" onerror="this.src='https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=500&q=80'">
       <div class="portfolio-overlay">
@@ -771,7 +542,6 @@
         <div class="portfolio-loc">Mumbai</div>
       </div>
     </div>
-
     <div class="portfolio-card">
       <img src="images/rolling_stones.png" alt="Rolling stones office" onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80'">
       <div class="portfolio-overlay">
@@ -780,8 +550,6 @@
         <div class="portfolio-loc">Mumbai · Recording Studio</div>
       </div>
     </div>
-
-    <!-- Row 3 -->
     <div class="portfolio-card">
       <img src="images/kids_room.png" alt="Kids room" onerror="this.src='https://images.unsplash.com/photo-1617325247661-675ab4b64ae2?w=500&q=80'">
       <div class="portfolio-overlay">
@@ -790,7 +558,6 @@
         <div class="portfolio-loc">Pune · Villa</div>
       </div>
     </div>
-
     <div class="portfolio-card wide">
       <img src="images/rajasthan_mural.png" alt="Rajasthani mural" onerror="this.src='https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=900&q=80'">
       <div class="portfolio-overlay">
@@ -799,8 +566,6 @@
         <div class="portfolio-loc">Mumbai · Premium Apartment</div>
       </div>
     </div>
-
-    <!-- Row 4 -->
     <div class="portfolio-card">
       <img src="images/magnolia_wall.png" alt="Magnolia" onerror="this.src='https://images.unsplash.com/photo-1522444195799-478538b28823?w=500&q=80'">
       <div class="portfolio-overlay">
@@ -809,7 +574,6 @@
         <div class="portfolio-loc">Pune</div>
       </div>
     </div>
-
     <div class="portfolio-card">
       <img src="images/floral_bedroom.png" alt="Floral bedroom" onerror="this.src='https://images.unsplash.com/photo-1618220179428-22790b461013?w=500&q=80'">
       <div class="portfolio-overlay">
@@ -818,7 +582,6 @@
         <div class="portfolio-loc">Mumbai</div>
       </div>
     </div>
-
     <div class="portfolio-card">
       <img src="images/beatles_wall.png" alt="Beatles mural" onerror="this.src='https://images.unsplash.com/photo-1603827457577-609e6f42a45e?w=500&q=80'">
       <div class="portfolio-overlay">
@@ -827,7 +590,6 @@
         <div class="portfolio-loc">Thane · Restaurant</div>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -918,72 +680,45 @@
 <!-- VISION -->
 <section id="vision">
   <div class="section-label" style="justify-content:center">Future</div>
-  <h2 class="vision-title reveal">
-    Where <span>Design Meets</span><br>Technology
-  </h2>
-  <p class="vision-sub reveal">
-    Building towards a design-tech platform where clients visualize wall designs before execution — making interior decisions faster, smarter, and more visual.
-  </p>
+  <h2 class="vision-title reveal">Where <span>Design Meets</span><br>Technology</h2>
+  <p class="vision-sub reveal">Building towards a design-tech platform where clients visualize wall designs before execution — making interior decisions faster, smarter, and more visual.</p>
   <a href="#contact" class="btn-outline reveal">Let's Build Together</a>
 </section>
 
-<!-- CONTACT -->
+<!-- CONTACT — No form, just info + CTAs -->
 <section id="contact">
-  <div class="contact-info reveal">
-    <div class="section-label">Contact</div>
-    <h2 class="section-title">Let's Create Something Remarkable</h2>
-    <p style="font-size:0.88rem;opacity:0.6;line-height:1.9;margin-bottom:2.5rem;">
-      Whether you're an architect planning a large project, a designer sourcing premium wall solutions, or a developer looking for a reliable execution partner — let's talk.
-    </p>
+  <div class="section-label reveal">Contact</div>
+  <h2 class="section-title reveal">Let's Create Something Remarkable</h2>
+  <p class="contact-tagline reveal">
+    Whether you're an architect planning a large project, a designer sourcing premium wall solutions, or a developer looking for a reliable execution partner — let's talk.
+  </p>
 
-    <div class="contact-item">
-      <div class="contact-icon">📍</div>
-      <div>
-        <div class="contact-detail-label">Location</div>
-        <div class="contact-detail-value">Mumbai & Pune · Pan-India</div>
-      </div>
-    </div>
-    <div class="contact-item">
-      <div class="contact-icon">📩</div>
-      <div>
-        <div class="contact-detail-label">Email</div>
-        <div class="contact-detail-value"><a href="mailto:manar@tetsipmedia.com">manar@tetsipmedia.com</a></div>
-      </div>
-    </div>
-    <div class="contact-item">
-      <div class="contact-icon">🌐</div>
-      <div>
-        <div class="contact-detail-label">Company</div>
-        <div class="contact-detail-value"><a href="https://tetsipmedia.com" target="_blank">tetsipmedia.com</a></div>
-      </div>
-    </div>
-    <div class="contact-item">
-      <div class="contact-icon">in</div>
-      <div>
-        <div class="contact-detail-label">LinkedIn</div>
-        <div class="contact-detail-value"><a href="https://linkedin.com/in/manarlaskar" target="_blank">linkedin.com/in/manarlaskar</a></div>
-      </div>
-    </div>
+  <div class="contact-cards reveal">
+    <a class="contact-card" href="https://wa.me/91XXXXXXXXXX" target="_blank">
+      <div class="contact-card-icon">💬</div>
+      <div class="contact-card-label">WhatsApp</div>
+      <div class="contact-card-value">Chat Directly</div>
+    </a>
+    <a class="contact-card" href="mailto:manar@tetsipmedia.com">
+      <div class="contact-card-icon">📩</div>
+      <div class="contact-card-label">Email</div>
+      <div class="contact-card-value">manar@tetsipmedia.com</div>
+    </a>
+    <a class="contact-card" href="https://linkedin.com/in/manarlaskar" target="_blank">
+      <div class="contact-card-icon">in</div>
+      <div class="contact-card-label">LinkedIn</div>
+      <div class="contact-card-value">linkedin.com/in/manarlaskar</div>
+    </a>
+    <a class="contact-card" href="https://tetsipmedia.com" target="_blank">
+      <div class="contact-card-icon">🌐</div>
+      <div class="contact-card-label">Company</div>
+      <div class="contact-card-value">tetsipmedia.com</div>
+    </a>
   </div>
 
-  <div class="contact-form reveal">
-    <div class="form-group">
-      <label class="form-label">Your Name</label>
-      <input type="text" class="form-input" placeholder="Ar. Vikram Shah">
-    </div>
-    <div class="form-group">
-      <label class="form-label">Email Address</label>
-      <input type="email" class="form-input" placeholder="vikram@studio.com">
-    </div>
-    <div class="form-group">
-      <label class="form-label">Project Type</label>
-      <input type="text" class="form-input" placeholder="Residential / Commercial / Hospitality">
-    </div>
-    <div class="form-group">
-      <label class="form-label">Message</label>
-      <textarea class="form-textarea" placeholder="Tell me about your project..."></textarea>
-    </div>
-    <button class="btn-primary" style="align-self:flex-start;cursor:pointer;border:none;" onclick="alert('Message sent! I\'ll be in touch within 24 hours.')">Send Message →</button>
+  <div class="contact-ctas reveal">
+    <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="btn-primary">WhatsApp Me →</a>
+    <a href="https://linkedin.com/in/manarlaskar" target="_blank" class="btn-outline">Connect on LinkedIn</a>
   </div>
 </section>
 
@@ -999,7 +734,7 @@
 </footer>
 
 <!-- WHATSAPP FLOAT -->
-<a class="wa-float" href="https://wa.me/9139356716" target="_blank" title="WhatsApp">
+<a class="wa-float" href="https://wa.me/91XXXXXXXXXX" target="_blank" title="WhatsApp">
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
   </svg>
