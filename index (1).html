@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manar Laskar — Sales & Projects Manager</title>
+
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6854268910692064" crossorigin="anonymous"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --charcoal: #1a1a1a;
+      --charcoal-mid: #242424;
+      --charcoal-light: #2e2e2e;
+      --rose-gold: #c9956c;
+      --rose-gold-light: #e0b08a;
+      --rose-gold-pale: rgba(201,149,108,0.12);
+      --cream: #f5efe8;
+      --cream-dim: #d4c9bc;
+      --white: #ffffff;
+      --text-muted: #8a8078;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--charcoal);
+      color: var(--cream);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NOISE TEXTURE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 5%;
+      background: rgba(26,26,26,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,149,108,0.15);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--rose-gold);
+      letter-spacing: 0.04em;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--rose-gold); }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--cream);
+      transition: all 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(26,26,26,0.98);
+      z-index: 99;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: var(--cream);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: color 0.3s;
+    }
+    .mobile-menu a:hover { color: var(--rose-gold); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 5% 5rem;
+      position: relative;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--rose-gold);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.3s forwards;
+    }
+
+    .hero-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.5rem, 10vw, 8rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--white);
+      letter-spacing: -0.01em;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.5s forwards;
+    }
+
+    .hero-name em {
+      font-style: italic;
+      color: var(--rose-gold);
+    }
+
+    .hero-tagline {
+      margin-top: 1.8rem;
+      font-size: clamp(0.85rem, 2vw, 1rem);
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: var(--cream-dim);
+      max-width: 520px;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.7s forwards;
+    }
+
+    .hero-cta {
+      margin-top: 3rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.9s forwards;
+    }
+
+    .btn-primary {
+      padding: 0.85rem 2.2rem;
+      background: var(--rose-gold);
+      color: var(--charcoal);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .btn-primary:hover { background: var(--rose-gold-light); transform: translateY(-2px); }
+
+    .btn-outline {
+      padding: 0.85rem 2.2rem;
+      background: transparent;
+      color: var(--cream);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid rgba(201,149,108,0.4);
+      cursor: pointer;
+      transition: border-color 0.3s, color 0.3s, transform 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--rose-gold); color: var(--rose-gold); transform: translateY(-2px); }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0;
+      animation: fadeUp 1s 1.2s forwards;
+    }
+    .hero-scroll span {
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .scroll-line {
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(to bottom, var(--rose-gold), transparent);
+      animation: scrollPulse 2s infinite;
+    }
+
+    /* ── SECTION STYLES ── */
+    section { padding: 6rem 5%; position: relative; }
+
+    .section-label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--rose-gold);
+      margin-bottom: 0.8rem;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 2.5rem;
+    }
+
+    .divider {
+      width: 60px;
+      height: 1px;
+      background: var(--rose-gold);
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      background: var(--charcoal-mid);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .about-text p {
+      font-size: 1rem;
+      line-height: 1.9;
+      color: var(--cream-dim);
+      margin-bottom: 1.2rem;
+    }
+
+    .about-text p strong {
+      color: var(--rose-gold);
+      font-weight: 500;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .stat-card {
+      padding: 1.8rem;
+      border: 1px solid rgba(201,149,108,0.18);
+      background: rgba(201,149,108,0.04);
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .stat-card:hover { border-color: var(--rose-gold); transform: translateY(-3px); }
+
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.6rem;
+      font-weight: 400;
+      color: var(--rose-gold);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+      margin-top: 0.4rem;
+    }
+
+    /* ── EXPERIENCE ── */
+    #experience { background: var(--charcoal); }
+
+    .timeline {
+      max-width: 800px;
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.5rem;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--rose-gold), transparent);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 3.5rem;
+      padding-left: 2.5rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2rem;
+      top: 0.6rem;
+      width: 8px;
+      height: 8px;
+      background: var(--rose-gold);
+      border-radius: 50%;
+      transform: translateX(-3.5px);
+    }
+
+    .timeline-period {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--rose-gold);
+      margin-bottom: 0.4rem;
+    }
+
+    .timeline-role {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 0.2rem;
+    }
+
+    .timeline-company {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--cream-dim);
+      margin-bottom: 1rem;
+    }
+
+    .timeline-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    .timeline-award {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.8rem;
+      padding: 0.4rem 0.9rem;
+      background: var(--rose-gold-pale);
+      border: 1px solid rgba(201,149,108,0.3);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: var(--rose-gold);
+    }
+
+    /* ── PROJECTS ── */
+    #projects { background: var(--charcoal-mid); }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: rgba(201,149,108,0.1);
+      max-width: 1100px;
+    }
+
+    .project-card {
+      background: var(--charcoal-mid);
+      padding: 2.5rem 2rem;
+      border: 1px solid transparent;
+      transition: border-color 0.4s, background 0.4s, transform 0.3s;
+      cursor: default;
+    }
+
+    .project-card:hover {
+      border-color: rgba(201,149,108,0.3);
+      background: var(--charcoal-light);
+      transform: translateY(-4px);
+    }
+
+    .project-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.9rem;
+      color: var(--rose-gold);
+      opacity: 0.6;
+      margin-bottom: 1.2rem;
+    }
+
+    .project-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--white);
+      line-height: 1.3;
+      margin-bottom: 0.6rem;
+    }
+
+    .project-location {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--rose-gold);
+      margin-bottom: 1rem;
+    }
+
+    .project-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ── SKILLS ── */
+    #skills { background: var(--charcoal); }
+
+    .skills-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      max-width: 1000px;
+    }
+
+    .skill-group-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+
+    .skill-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .skill-name {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--cream-dim);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .skill-bar {
+      height: 1px;
+      background: rgba(201,149,108,0.15);
+      position: relative;
+    }
+
+    .skill-fill {
+      position: absolute;
+      left: 0; top: 0;
+      height: 100%;
+      background: var(--rose-gold);
+      transition: width 1.2s ease;
+    }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--charcoal-mid); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      max-width: 1000px;
+    }
+
+    .contact-intro {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 300;
+      line-height: 1.4;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-intro em { font-style: italic; color: var(--rose-gold); }
+
+    .contact-sub {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+      padding: 1rem 1.2rem;
+      border: 1px solid rgba(201,149,108,0.15);
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .contact-link:hover { border-color: var(--rose-gold); transform: translateX(6px); }
+
+    .contact-link-icon {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--rose-gold-pale);
+      color: var(--rose-gold);
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .contact-link-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .contact-link-value {
+      font-size: 0.9rem;
+      color: var(--cream);
+      font-weight: 400;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 2.5rem 5%;
+      border-top: 1px solid rgba(201,149,108,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--rose-gold);
+    }
+
+    .footer-copy {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; }
+      50%       { opacity: 1; }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 5%; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      section { padding: 4.5rem 5%; }
+
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about-stats { grid-template-columns: 1fr 1fr; }
+
+      .projects-grid { grid-template-columns: 1fr; }
+      .project-card { padding: 2rem 1.5rem; }
+
+      .skills-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+
+      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+
+      .hero-cta { gap: 0.8rem; }
+      .btn-primary, .btn-outline { padding: 0.8rem 1.6rem; font-size: 0.72rem; }
+
+      footer { flex-direction: column; align-items: flex-start; }
+
+      .timeline { padding-left: 1.5rem; }
+      .timeline-item { padding-left: 1.8rem; }
+      .timeline-item::before { left: -1.5rem; }
+    }
+
+    @media (max-width: 480px) {
+      .about-stats { grid-template-columns: 1fr; }
+      .stat-card { padding: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="#hero" class="nav-logo">ML</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#experience" onclick="closeMobile()">Experience</a>
+  <a href="#projects" onclick="closeMobile()">Projects</a>
+  <a href="#skills" onclick="closeMobile()">Skills</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+</div>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <p class="hero-eyebrow">Sales & Projects Manager · Pune / Mumbai</p>
+  <h1 class="hero-name">Manar <em>Laskar</em></h1>
+  <p class="hero-tagline">Wallpaper & Interior Solutions · B2B Partnerships · Startup Builder in Design-Tech</p>
+  <div class="hero-cta">
+    <a href="#projects" class="btn-primary">View Projects</a>
+    <a href="#contact" class="btn-outline">Get in Touch</a>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p class="section-label">About</p>
+      <h2 class="section-title">Building spaces.<br/>Building businesses.</h2>
+      <div class="divider"></div>
+      <p>I'm a Sales & Projects Manager at <strong>Tetsip Media</strong>, specialising in luxury wallpaper solutions and end-to-end project management across Mumbai and Pune.</p>
+      <p>My work lives at the intersection of <strong>design, sales strategy, and B2B partnerships</strong> — collaborating with architects, interior designers, and PMC firms to bring exceptional interiors to life.</p>
+      <p>Beyond the day job, I'm actively exploring a <strong>design-tech startup</strong> focused on solving the visualisation gap in interior design — enabling clients to see exactly how a space will look before installation.</p>
+    </div>
+    <div class="about-stats reveal">
+      <div class="stat-card">
+        <div class="stat-number">6+</div>
+        <div class="stat-label">Landmark Projects</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">₹3L</div>
+        <div class="stat-label">Monthly Sales Target</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">2</div>
+        <div class="stat-label">Cities · Pune & Mumbai</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">B2B</div>
+        <div class="stat-label">Architecture & Design Focus</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── AD UNIT 1 (between About & Experience) ── -->
+<div style="width:100%;background:var(--charcoal);padding:1.5rem 5%;text-align:center;">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-6854268910692064"
+       data-ad-slot="8872768832"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<!-- ── EXPERIENCE ── -->
+<section id="experience">
+  <p class="section-label reveal">Experience</p>
+  <h2 class="section-title reveal">Career <em style="font-family:'Cormorant Garamond',serif;font-style:italic;">Timeline</em></h2>
+  <div class="divider reveal"></div>
+
+  <div class="timeline">
+    <div class="timeline-item reveal">
+      <div class="timeline-period">2023 — Present</div>
+      <div class="timeline-role">Sales & Projects Manager</div>
+      <div class="timeline-company">Tetsip Media · Pune / Mumbai</div>
+      <p class="timeline-desc">Leading wallpaper sales and project management across Mumbai and Pune. Building B2B partnerships with architects and interior designers, managing installation projects from inception to handover, and driving business development with a ₹3 lakh monthly sales target.</p>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-period">Previous Role</div>
+      <div class="timeline-role">Manager</div>
+      <div class="timeline-company">Installer.in · Pune</div>
+      <p class="timeline-desc">Built the wallpaper vertical from the ground up and developed the Pune market from scratch. Managed wallpaper, flooring, vinyl, and grass installations. Cultivated strong relationships with architects and interior designers across the city.</p>
+      <div class="timeline-award">🏆 Rising Star of the Year</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROJECTS ── -->
+<section id="projects">
+  <p class="section-label reveal">Portfolio</p>
+  <h2 class="section-title reveal">Notable <em style="font-family:'Cormorant Garamond',serif;font-style:italic;">Projects</em></h2>
+  <div class="divider reveal"></div>
+
+  <div class="projects-grid reveal">
+    <div class="project-card">
+      <div class="project-number">01</div>
+      <div class="project-name">Trident Hotel Marine Drive</div>
+      <div class="project-location">Marine Drive · Mumbai</div>
+      <p class="project-desc">Luxury wallpaper installation for one of Mumbai's most iconic five-star properties. Precision execution across multiple suites and common areas.</p>
+    </div>
+    <div class="project-card">
+      <div class="project-number">02</div>
+      <div class="project-name">Jio World Plaza</div>
+      <div class="project-location">BKC · Mumbai</div>
+      <p class="project-desc">High-profile commercial installation at Mumbai's premier luxury retail destination, delivering wall solutions aligned with the property's world-class aesthetic.</p>
+    </div>
+    <div class="project-card">
+      <div class="project-number">03</div>
+      <div class="project-name">Jio World Convention Centre</div>
+      <div class="project-location">BKC · Mumbai</div>
+      <p class="project-desc">Large-scale installation project at India's largest convention centre, requiring meticulous project coordination and premium material sourcing.</p>
+    </div>
+    <div class="project-card">
+      <div class="project-number">04</div>
+      <div class="project-name">Zaveri House</div>
+      <div class="project-location">Bandra · Mumbai</div>
+      <p class="project-desc">Bespoke residential wallpaper solution for a high-end private residence, blending client vision with curated luxury materials.</p>
+    </div>
+    <div class="project-card">
+      <div class="project-number">05</div>
+      <div class="project-name">Tropical Office Mural</div>
+      <div class="project-location">Andheri · Mumbai</div>
+      <p class="project-desc">Custom large-format mural installation for a contemporary office space, transforming a commercial environment through bold visual storytelling.</p>
+    </div>
+    <div class="project-card">
+      <div class="project-number">06</div>
+      <div class="project-name">Pune Market Launch</div>
+      <div class="project-location">Pune</div>
+      <p class="project-desc">Built the Pune wallpaper and interiors market from zero — establishing B2B channels, onboarding architect and designer partners, and scaling revenue consistently.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── AD UNIT 2 (between Projects & Skills) ── -->
+<div style="width:100%;background:var(--charcoal-mid);padding:1.5rem 5%;text-align:center;">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-6854268910692064"
+       data-ad-slot="8872768832"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<!-- ── SKILLS ── -->
+<section id="skills">
+  <p class="section-label reveal">Expertise</p>
+  <h2 class="section-title reveal">Core <em style="font-family:'Cormorant Garamond',serif;font-style:italic;">Skills</em></h2>
+  <div class="divider reveal"></div>
+
+  <div class="skills-layout reveal">
+    <div>
+      <div class="skill-group-title">Sales & Business</div>
+      <div class="skill-item">
+        <div class="skill-name"><span>B2B Sales & Partnerships</span><span>95%</span></div>
+        <div class="skill-bar"><div class="skill-fill" data-width="95%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name"><span>Lead Generation</span><span>88%</span></div>
+        <div class="skill-bar"><div class="skill-fill" data-width="88%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name"><span>Project Management</span><span>90%</span></div>
+        <div class="skill-bar"><div class="skill-fill" data-width="90%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name"><span>Client Relationship</span><span>92%</span></div>
+        <div class="skill-bar"><div class="skill-fill" data-width="92%"></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="skill-group-title">Design & Digital</div>
+      <div class="skill-item">
+        <div class="skill-name"><span>Interior Design Trends</span><span>85%</span></div>
+        <div class="skill-bar"><div class="skill-fill" data-width="85%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name"><span>LinkedIn Personal Brand</span><span>88%</span></div>
+        <div class="skill-bar"><div class="skill-fill" data-width="88%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name"><span>Social Media Content</span><span>82%</span></div>
+        <div class="skill-bar"><div class="skill-fill" data-width="82%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name"><span>Market Research</span><span>80%</span></div>
+        <div class="skill-bar"><div class="skill-fill" data-width="80%"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="reveal">
+      <p class="section-label">Contact</p>
+      <p class="contact-intro">Let's create something <em>remarkable</em> together.</p>
+      <p class="contact-sub">Whether you're an architect, interior designer, or brand looking for exceptional wallpaper and interior solutions across Mumbai and Pune — I'd love to connect.</p>
+      <a href="mailto:manarlaskar@gmail.com" class="btn-primary">Send a Message</a>
+    </div>
+    <div class="contact-links reveal">
+      <a href="https://linkedin.com/in/manarlaskar" class="contact-link" target="_blank" rel="noopener">
+        <div class="contact-link-icon">in</div>
+        <div>
+          <div class="contact-link-label">LinkedIn</div>
+          <div class="contact-link-value">linkedin.com/in/manarlaskar</div>
+        </div>
+      </a>
+      <a href="mailto:manarlaskar@gmail.com" class="contact-link">
+        <div class="contact-link-icon">@</div>
+        <div>
+          <div class="contact-link-label">Email</div>
+          <div class="contact-link-value">manarlaskar@gmail.com</div>
+        </div>
+      </a>
+      <a href="tel:+919999999999" class="contact-link">
+        <div class="contact-link-icon">☏</div>
+        <div>
+          <div class="contact-link-label">Location</div>
+          <div class="contact-link-value">Pune & Mumbai, India</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-logo">Manar Laskar</div>
+  <div class="footer-copy">© 2025 · Sales & Projects Manager · Tetsip Media</div>
+</footer>
+
+<script>
+  // Hamburger
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  function closeMobile() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  }
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => obs.observe(el));
+
+  // Skill bars
+  const bars = document.querySelectorAll('.skill-fill');
+  const barObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.width = e.target.dataset.width;
+        barObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  bars.forEach(b => { b.style.width = '0'; barObs.observe(b); });
+</script>
+</body>
+</html>
